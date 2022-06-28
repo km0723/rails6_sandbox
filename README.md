@@ -1,4 +1,5 @@
 # README
+rails6開発環境
 
 - 以下構成にて動作します。
   - Webサーバ : nginx:1.18
@@ -21,7 +22,7 @@ sequenceDiagram
     Webサーバ->> Client: response
 ```
 
-- ディレクトリ構成は以下の通り
+## ディレクトリ構成
 ```tree
 .
 ├── Dockerfile
@@ -51,3 +52,32 @@ sequenceDiagram
   - Webサーバの設定を行います
 - forDocker/rails/entrypoint.sh
   - rails6環境構築用のヘルパースクリプト
+
+## 使い方
+```
+# 必要な資材のクローン
+git clone https://github.com/km0723/rails6_sandbox
+cd rails6_sandbox
+git clone https://github.com/km0723/rails_app.git
+
+# docker image及びcontainer作成
+docker-compose build
+docker-compose up -d
+
+# db create
+docker exec -it app bash
+bundle exec rails db:create
+
+# rails access
+http://localhost:8080/
+
+# vm起動
+docker-compose up -d
+
+# vm停止
+docker-compose down
+
+# 注意
+docker-compose up -d の後railsが起動するまで時間がかかる場合があります。
+その場合はしばらく時間をあけてから再度アクセスしてください。
+```
