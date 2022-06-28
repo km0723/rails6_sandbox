@@ -29,16 +29,12 @@ sequenceDiagram
 ├── README.md
 ├── docker-compose.yml
 ├── forDocker
-│   ├── mysql
-│   │   └── conf.d
-│   ├── nginx
-│   │   └── default.conf
-│   └── rails
-│       └── entrypoint.sh
-└── rails_app
-    ├── Gemfile
-    ├── Gemfile.lock
-    ├── ... etc
+    ├── mysql
+    │   └── conf.d
+    ├── nginx
+    │   └── default.conf
+    └── rails
+        └── entrypoint.sh
 ```
 - README.md
   - 本資料
@@ -52,6 +48,10 @@ sequenceDiagram
   - Webサーバの設定を行います
 - forDocker/rails/entrypoint.sh
   - rails6環境構築用のヘルパースクリプト
+- rails_app
+  - 上記構成には出てきませんがrailsアプリを配置します
+  - コンテナとの共有フォルダとして使用します
+  - 詳細は後述を参照
 
 ## 使い方
 ```
@@ -71,10 +71,10 @@ bundle exec rails db:create
 # rails access
 http://localhost:8080/
 
-# vm起動
+# コンテナ起動
 docker-compose up -d
 
-# vm停止
+# コンテナ停止
 docker-compose down
 
 # 注意
