@@ -81,3 +81,14 @@ docker-compose down
 docker-compose up -d の後railsが起動するまで時間がかかる場合があります。
 その場合はしばらく時間をあけてから再度アクセスしてください。
 ```
+
+## デバッグ方法
+- appサーバ
+  - [ruby-debug-ide](https://github.com/ruby-debug/ruby-debug-ide)にてrailsのデバッグができるよう
+  以下ポートフォワード設定済みです。
+    - 1234 -> 1234
+    - 26162 -> 26162
+
+  - `vscode`からデバッグするための設定手順については以下が参考になります。
+    - https://qiita.com/nakazawaken1/items/f442e8c25f3025f8147f
+
