@@ -15,7 +15,7 @@ sequenceDiagram
     Client->>  Webサーバ: request:8080(80)
     Note over Webサーバ:80ポートでリッスン
     Webサーバ->> Appサーバ: request3000(3000)
-    Note over Appサーバ:Webサーバよりリバースプロキシ
+    Note over Appサーバ:3000ポートでリッスン
     Appサーバ->>DBサーバ: request3306(3306)
     DBサーバ->> Appサーバ: response
     Appサーバ->> Webサーバ: response
